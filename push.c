@@ -10,10 +10,10 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new = malloc(sizeof(stack_t));
-	
+	(void)line_number;
 	if (new == NULL)
 	{
-		dprintf(2,"cant't malloc");
+		fprintf(stderr,"cant't malloc");
 		exit(EXIT_FAILURE);
 	}
 

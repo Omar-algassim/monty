@@ -9,7 +9,7 @@
 
 info_t info = {0};
 
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	FILE *mont;
 	int line_number = 1;
@@ -36,4 +36,5 @@ void main(int argc, char **argv)
 	free_stack(stack);
 	free(line);
 	fclose(mont);
-}
+return (0);
+}	
