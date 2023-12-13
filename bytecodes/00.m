@@ -1,4 +1,4 @@
-push 1
-push 2
-push 3
-pall
+pusssh 1
+pusah 2
+pusssh 3
+palkkl
