@@ -7,13 +7,15 @@
  * Return: nothing
  */
 
-info_t info = {0};
+info_t info = {NULL};
 
 int main(int argc, char **argv)
 {
 	FILE *mont;
 	int line_number = 1;
-	char *line = malloc(sizeof(char *) * 2);
+	char *line;
+	size_t size = 0;
+	ssize_t i = 0;
 	stack_t *stack = NULL;
 
 	if (argc != 2)
@@ -28,13 +30,15 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	
-	while(fgets(line, 100, mont) != 0)
+	while(i != -1)
 	{
+		line = NULL;
+		i = getline(&line, &size, mont);
 		opcode(line, &stack, line_number);
 		line_number++;
+		free(line);
 	}
 	free_stack(stack);
-	free(line);
 	fclose(mont);
 return (0);
 }	

@@ -18,9 +18,9 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	for(i = 0; info.arg[i] == '\0'; i++)
+	for(i = 0; info.arg[i] != '\0'; i++)
 	{
-		if (info.arg[i] > 57 || info.arg[i] < 48)
+		if (info.arg[i] > '9' || info.arg[i] < '0')
 		{
 			fprintf(stderr,"L%d: usage: push integer\n", line_number);
 			exit(EXIT_FAILURE);
