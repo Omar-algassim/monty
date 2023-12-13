@@ -14,16 +14,12 @@ void opcode(char *line, stack_t **stack, unsigned int line_number)
 		{NULL, NULL}
 	};
 	
-	char *tok, *number;
+	char *tok;
 	int i = 0;
-	int num;
+
 	tok = strtok(line, " \t\n");
-	number = strtok(NULL, " \t\n");
-	if (number != NULL)
-	{
-		num = atoi(number);
-		info.num = num;
-	}
+	info.arg = strtok(NULL, " \t\n");
+	if (tok != NULL)
 	while(inst[i].opcode != NULL)
 	{
 		if (strcmp(tok, inst[i].opcode) == 0)
@@ -36,6 +32,7 @@ void opcode(char *line, stack_t **stack, unsigned int line_number)
 	if (tok && inst[i].opcode == NULL)
 	{
 		fprintf(stderr,"L%d: unknown instruction <opcode>\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 	
 }	

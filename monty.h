@@ -40,7 +40,7 @@ typedef struct instruction_s
 
 typedef struct info_s
 {
-	int num;
+	char *arg;
 }info_t;
 
 extern info_t info;

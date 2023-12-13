@@ -10,14 +10,30 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new = malloc(sizeof(stack_t));
-	(void)line_number;
-	if (new == NULL)
+	int num, i;
+	
+	if (info.arg == NULL)
 	{
-		fprintf(stderr,"cant't malloc");
+		fprintf(stderr,"L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	new->n = info.num;	
+	for(i = 0; info.arg[i] == '\0'; i++)
+	{
+		if (info.arg[i] > 57 || info.arg[i] < 48)
+		{
+			fprintf(stderr,"L%d: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
+	}
+	if (new == NULL)
+	{
+		fprintf(stderr,"Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+	
+	num = atoi(info.arg);
+	new->n = num;	
 	new->next = *stack;
 	*stack = new;
 	new->prev = NULL;
