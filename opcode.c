@@ -2,18 +2,20 @@
 
 /**
  * opcode - decide the operation
- * @buffer: the line of operarion
- * Return: the 
+ * @line: the line of operarion
+ * @stack: the stack for linked list
+ * @line_number: the number of operation line
+ * Return: nothing
  */
 
 void opcode(char *line, stack_t **stack, unsigned int line_number)
 {
 	instruction_t inst[] = {
-		{"push", push}, 
+		{"push", push},
 		{"pall", pall},
 		{NULL, NULL}
 	};
-	
+
 	char *tok;
 	int i = 0;
 
@@ -21,7 +23,7 @@ void opcode(char *line, stack_t **stack, unsigned int line_number)
 	info.arg = strtok(NULL, " \t\n");
 	if (tok != NULL)
 	{
-	while(inst[i].opcode != NULL)
+	while (inst[i].opcode != NULL)
 	{
 		if (strcmp(tok, inst[i].opcode) == 0)
 		{
@@ -32,8 +34,8 @@ void opcode(char *line, stack_t **stack, unsigned int line_number)
 	}
 	if (tok && inst[i].opcode == NULL)
 	{
-		fprintf(stderr,"L%d: unknown instruction <opcode>\n", line_number);
+		fprintf(stderr, "L%d: unknown instruction <opcode>\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	}
-}	
+}

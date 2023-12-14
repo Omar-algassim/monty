@@ -1,8 +1,9 @@
 #include "monty.h"
 
 /**
- * print_dlistint - print all elemnt in list
- * @h: the header
+ * pall - print all elemnt in list
+ * @stack: the header
+ * @line_number: the number of line
  * Return: the number of node
 */
 
