@@ -10,14 +10,16 @@
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new = malloc(sizeof(stack_t));
-	int num, i;
+	int num, i = 0;
 
 	if (info.arg == NULL)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-
+	printf("arg : %c", info.arg[0]);
+	if (info.arg[0] == '-')
+		i++;
 	for (i = 0; info.arg[i] != '\0'; i++)
 	{
 		if (info.arg[i] > '9' || info.arg[i] < '0')
