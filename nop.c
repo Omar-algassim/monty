@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * pop - delet last elemnt
+ * nop - delet last elemnt
  * @stack: the last elemnt
  * @line_number: the line number
  * Reeturn: nothing
