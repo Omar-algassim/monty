@@ -13,7 +13,7 @@ int main(int argc, char **argv)
 {
 	FILE *mont;
 	int line_number = 1;
-	char *line;
+	char *line = NULL;
 	size_t size = 0;
 	ssize_t i = 0;
 	stack_t *stack = NULL;
@@ -34,10 +34,16 @@ int main(int argc, char **argv)
 	{
 		line = NULL;
 		i = getline(&line, &size, mont);
-		opcode(line, &stack, line_number);
+		if (line != NULL)
+		{
+			if (i != -1 &&line[0] != '\n' && line[0] != '\0')
+			{
+				opcode(line, &stack, line_number);
+			}
+		}
 		line_number++;
 		free(line);
-	}
+	}		
 	free_stack(stack);
 	fclose(mont);
 return (0);

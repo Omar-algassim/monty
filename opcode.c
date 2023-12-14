@@ -14,7 +14,7 @@ void opcode(char *line, stack_t **stack, unsigned int line_number)
 		{NULL, NULL}
 	};
 	
-	char *tok = NULL;
+	char *tok;
 	int i = 0;
 
 	tok = strtok(line, " \t\n");
