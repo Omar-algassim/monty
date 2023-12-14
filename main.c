@@ -29,11 +29,12 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-
+	info.file = mont;
 	while (i != -1)
 	{
 		line = NULL;
 		i = getline(&line, &size, mont);
+		info.op = line;
 		if (line != NULL)
 		{
 			if (i != -1 && line[0] != '\n' && line[0] != '\0')

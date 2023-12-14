@@ -42,6 +42,8 @@ typedef struct instruction_s
 typedef struct info_s
 {
 	char *arg;
+	FILE *file;
+	char *op;
 }info_t;
 
 extern info_t info;
@@ -54,6 +56,6 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
-
+void nop(stack_t **stack, unsigned int line_number);
 
 #endif

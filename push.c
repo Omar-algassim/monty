@@ -23,6 +23,9 @@ void push(stack_t **stack, unsigned int line_number)
 		if (info.arg[i] > '9' || info.arg[i] < '0')
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			free(info.op);
+			free_stack(*stack);
+			fclose(info.file);
 			exit(EXIT_FAILURE);
 		}
 	}
