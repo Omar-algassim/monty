@@ -13,6 +13,7 @@ void opcode(char *line, stack_t **stack, unsigned int line_number)
 	instruction_t inst[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 
