@@ -13,14 +13,15 @@ void rotl(stack_t **stack, unsigned int line_number)
 	stack_t *backward = *stack;
 	stack_t *temp;
 	(void)line_number;
+	
 	while(backward->next != NULL)
 		backward = backward->next;
 	printf("%d and %d\n", forward->n, backward->n);
 	while(forward != NULL)
 	{
-		temp->n = backward->n;
-		backward->n = forward->n;
-		forward->n = temp->n;
+		temp = backward;
+		backward = forward;
+		forward = temp;
 		
 		backward = backward->prev;
 		forward = forward->next;
