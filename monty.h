@@ -44,6 +44,7 @@ typedef struct info_s
 	char *arg;
 	FILE *file;
 	char *op;
+	int toggle;
 }info_t;
 
 extern info_t info;
@@ -65,5 +66,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void _stack(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
 
 #endif

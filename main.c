@@ -1,6 +1,6 @@
 #include "monty.h"
 
-info_t info = {NULL, NULL, NULL};
+info_t info = {NULL, NULL, NULL, 0};
 
 /**
  * main - open monty file and  decide operation
