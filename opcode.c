@@ -21,18 +21,26 @@ void opcode(char *line, stack_t **stack, unsigned int line_number)
 		{"sub", sub},
 		{"div", _div},
 		{"mul", _mul},
+		{"pchar", pchar},
+		{"pstr", pstr},
+		{"rotl", rotl},
 		{NULL, NULL}
 	};
 
 	char *tok;
-	int i = 0;
-
+	int i = 0, comment = 0;
+	
 	tok = strtok(line, " \t\n");
 	info.arg = strtok(NULL, " \t\n");
 	if (tok != NULL)
 	{
 	while (inst[i].opcode != NULL)
 	{
+		if (tok[0] == '#')
+		{
+			comment = 1;
+			break;
+		}
 		if (strcmp(tok, inst[i].opcode) == 0)
 		{
 			inst[i].f(stack, line_number);
@@ -40,7 +48,7 @@ void opcode(char *line, stack_t **stack, unsigned int line_number)
 		}
 		i++;
 	}
-	if (tok && inst[i].opcode == NULL)
+	if (tok && inst[i].opcode == NULL && comment != 1)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, tok);
 		exit(EXIT_FAILURE);
