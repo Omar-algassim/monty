@@ -25,7 +25,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	current = *stack;
-	sum = current->n + current->next->n;
+	sum = current->n * current->next->n;
 	current->next->n = sum;
 	*stack = current->next;
 	free(current);
