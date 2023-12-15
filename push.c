@@ -47,13 +47,20 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		while (current->next != NULL)
-			current = current->next;
-
 		num = atoi(info.arg);
 		new->n = num;
-		new->next = NULL;
-		current->next = new;
-		new->prev = current;
+		if (*stack != NULL)
+		{
+			while (current->next != NULL)
+				current = current->next;
+			new->prev = current;
+			current->next = new;
+			new->next = NULL;
+		}
+		else
+		{
+			*stack = new;
+			new->prev = NULL;
+		}
 	}
 }
