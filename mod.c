@@ -25,6 +25,11 @@ void _mod(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	current = *stack;
+	if (current->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	sum = current->next->n % current->n;
 	current->next->n = sum;
 	*stack = current->next;
