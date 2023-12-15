@@ -39,7 +39,7 @@ void opcode(char *line, stack_t **stack, unsigned int line_number)
 	}
 	if (tok && inst[i].opcode == NULL)
 	{
-		fprintf(stderr, "L%d: unknown instruction <opcode>\n", line_number);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, tok);
 		exit(EXIT_FAILURE);
 	}
 	}
