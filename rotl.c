@@ -13,11 +13,14 @@ void rotl(stack_t **stack, unsigned int line_number)
 	stack_t *back = *stack;
 	(void)line_number;
 
-	while (back->next != NULL)
+	if (*stack != NULL)
 	{
-		back = back->next;
-	}
+		while (back->next != NULL)
+		{
+			back = back->next;
+		}
 		back->next = top;
 		*stack = top->next;
 		top->next = NULL;
+	}
 }
