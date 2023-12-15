@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * push - add new at the beginning of a dlistint_t
+ * add - add last tow elemnt in stack
  * @stack: the head node
  * @line_number: the number of line
  * Return: the new node
@@ -19,7 +19,7 @@ void add(stack_t **stack, unsigned int line_number)
 		i++;
 	}
 
-	if(i < 2)
+	if (i < 2)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short", line_number);
 		exit(EXIT_FAILURE);

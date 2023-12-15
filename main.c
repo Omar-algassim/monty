@@ -1,5 +1,7 @@
 #include "monty.h"
 
+info_t info = {NULL, NULL, NULL};
+
 /**
  * main - open monty file and  decide operation
  * @argv: the argument will pass
@@ -7,7 +9,6 @@
  * Return: nothing
  */
 
-info_t info = {NULL};
 
 int main(int argc, char **argv)
 {
