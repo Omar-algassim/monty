@@ -24,12 +24,12 @@ void _div(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+	current = *stack;
 	if (current->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	current = *stack;
 	res = current->next->n / current->n;
 	current->next->n = res;
 	*stack = current->next;
