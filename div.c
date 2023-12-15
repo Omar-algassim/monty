@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * div - devided last tow elemnt in stack
+ * _div - devided last tow elemnt in stack
  * @stack: the head node
  * @line_number: the number of line
  * Return: the new node
 */
 
-void div(stack_t **stack, unsigned int line_number)
+void _div(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current;
 	int i = 0, res = 0;
@@ -31,7 +31,7 @@ void div(stack_t **stack, unsigned int line_number)
 	}
 	current = *stack;
 	res = current->next->n / current->n;
-	current->next->n = sum;
+	current->next->n = res;
 	*stack = current->next;
 	free(current);
 }
